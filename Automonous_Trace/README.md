@@ -1,13 +1,17 @@
+# Autonomous trace to debug IFS issues
+
+Bases on https://community.ifs.com/ifs-general-topics-employees-partners-only-79/use-of-autonomous-transactions-1288?tid=1288&fid=79
+
 ## Add autonomous trace
 ```sql
-Autonomous_Trace('Call to Get_basic',  dbms_utility.format_call_stack);
+Autonomous_Trace('trace ID 1',  dbms_utility.format_call_stack);
 ```
 
 ## Query from the trace table
 ```sql
-Select * from AUTONOMOUS_TRACE_TAB
+SELECT * FROM AUTONOMOUS_TRACE_TAB
 ```
 ## Delete from the trace table
 ```sql
-DELETE from AUTONOMOUS_TRACE_TAB
+DELETE FROM AUTONOMOUS_TRACE_TAB
 ```
