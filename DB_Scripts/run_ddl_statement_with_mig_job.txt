@@ -1,0 +1,24 @@
+'!FNDSER.EVENT_ACTION_PARAM' || chr(13) || chr(10) ||
+'$SQL=
+declare
+c_             NUMBER; 
+stmt_ VARCHAR2(32000);
+cnt_           NUMBER;
+statement_     CLOB;
+begin 
+
+stmt_ := ''truncate table server_log_tab'';
+statement_ :=  stmt_;
+c_ := Dbms_Sql.Open_Cursor;
+Dbms_Sql.Parse(c => c_, STATEMENT => statement_, language_flag => 1);
+cnt_ := Dbms_Sql.Execute(c_);
+IF Dbms_Sql.Is_Open(c_) THEN
+    Dbms_Sql.Close_Cursor(c_);
+END IF;
+EXCEPTION
+   WHEN OTHERS THEN
+      IF Dbms_Sql.Is_Open(c_) THEN
+         Dbms_Sql.Close_Cursor(c_);
+      END IF;
+      RAISE;
+end;'
