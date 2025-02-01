@@ -1,3 +1,5 @@
+--fnd_event_action_api.Action_Executeonlinesql
+
 '!FNDSER.EVENT_ACTION_PARAM' || chr(13) || chr(10) ||
 '$SQL=
 declare
